@@ -33,6 +33,5 @@ RUN rm -f /var/www/html/config.inc.php
 # Expose port 80
 EXPOSE 80
 
-# Jalankan entrypoint
-ENTRYPOINT ["docker-entrypoint.sh"]
+
 CMD ["sh", "-c", "php-fpm -F & nginx -g 'daemon off;'"]
