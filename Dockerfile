@@ -22,8 +22,16 @@ RUN mkdir -p files cache public \
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
+# Copy dan set permission entrypoint
+COPY docker-entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
+# Hapus config.inc.php bawaan (akan di-generate oleh entrypoint)
+RUN rm -f /var/www/html/config.inc.php
+
 # Expose port 80
 EXPOSE 80
 
-# Jalankan PHP-FPM & Nginx
+# Jalankan entrypoint
+ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["sh", "-c", "php-fpm -F & nginx -g 'daemon off;'"]
