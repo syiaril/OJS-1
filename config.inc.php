@@ -6,7 +6,7 @@
 [general]
 app_key = ""
 installed = Off
-base_url = "<?php echo getenv('BASE_URL'); ?>"
+base_url = "https://ojs.ubig.web.id"
 strict = Off
 session_cookie_name = OJSSID
 session_lifetime = 30
@@ -19,7 +19,7 @@ datetime_format_long = "F j, Y - h:i A"
 time_format = "h:i A"
 allow_url_fopen = Off
 restful_urls = Off
-allowed_hosts = ''
+allowed_hosts = "ojs.ubig.web.id"
 trust_x_forwarded_for = On
 show_upgrade_warning = On
 enable_minified = Off
@@ -29,12 +29,12 @@ user_validation_period = 28
 sandbox = Off
 
 [database]
-driver = "<?php echo getenv('DB_DRIVER'); ?>"
-host = "<?php echo getenv('DB_HOST'); ?>"
-username = "<?php echo getenv('DB_USERNAME'); ?>"
-password = "<?php echo getenv('DB_PASSWORD'); ?>"
-name = "<?php echo getenv('DB_DATABASE'); ?>"
-port = <?php echo getenv('DB_PORT'); ?>
+driver = mysqli
+host = dwws8c8gs8o088gk4o8ook8s
+username = ojs_user
+password = ojs_pass
+name = ojs_db
+port = 3306
 debug = Off
 
 [cache]
@@ -48,13 +48,13 @@ locale = en
 connection_charset = utf8
 
 [files]
-files_dir = "<?php echo getenv('OJS_FILES_DIR'); ?>"
-public_files_dir = "<?php echo getenv('OJS_PUBLIC_DIR'); ?>"
+files_dir = /var/www/html/files
+public_files_dir = /var/www/html/public
 public_user_dir_size = 5000
 umask = 0022
 
 [security]
-force_ssl = Off
+force_ssl = On
 force_login_ssl = Off
 session_check_ip = On
 encryption = sha1
